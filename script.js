@@ -1,3 +1,102 @@
+// ===== ANIMATED PARTICLE BACKGROUND =====
+const canvas = document.getElementById('background-canvas');
+const ctx = canvas.getContext('2d');
+
+// Set canvas size
+function setCanvasSize() {
+  canvas.width = window.innerWidth;
+  canvas.height = document.body.scrollHeight;
+}
+
+setCanvasSize();
+window.addEventListener('resize', setCanvasSize);
+
+// Particle class with neon green theme
+class Particle {
+  constructor() {
+    this.x = Math.random() * canvas.width;
+    this.y = Math.random() * canvas.height;
+    this.size = Math.random() * 2 + 1;
+    this.speedX = Math.random() * 0.5 - 0.25;
+    this.speedY = Math.random() * 0.5 - 0.25;
+    this.opacity = Math.random() * 0.3 + 0.1;
+  }
+
+  update() {
+    this.x += this.speedX;
+    this.y += this.speedY;
+
+    // Wrap around screen
+    if (this.x > canvas.width) this.x = 0;
+    if (this.x < 0) this.x = canvas.width;
+    if (this.y > canvas.height) this.y = 0;
+    if (this.y < 0) this.y = canvas.height;
+  }
+
+  draw() {
+    ctx.fillStyle = `rgba(0, 255, 136, ${this.opacity})`;
+    ctx.beginPath();
+    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+    ctx.fill();
+  }
+}
+
+// Create particles
+const particlesArray = [];
+const numberOfParticles = 100;
+
+function initParticles() {
+  for (let i = 0; i < numberOfParticles; i++) {
+    particlesArray.push(new Particle());
+  }
+}
+
+// Connect particles with lines
+function connectParticles() {
+  for (let i = 0; i < particlesArray.length; i++) {
+    for (let j = i + 1; j < particlesArray.length; j++) {
+      const dx = particlesArray[i].x - particlesArray[j].x;
+      const dy = particlesArray[i].y - particlesArray[j].y;
+      const distance = Math.sqrt(dx * dx + dy * dy);
+
+      if (distance < 150) {
+        ctx.strokeStyle = `rgba(0, 255, 136, ${0.15 - distance / 1000})`;
+        ctx.lineWidth = 1;
+        ctx.beginPath();
+        ctx.moveTo(particlesArray[i].x, particlesArray[i].y);
+        ctx.lineTo(particlesArray[j].x, particlesArray[j].y);
+        ctx.stroke();
+      }
+    }
+  }
+}
+
+// Animation loop
+function animateParticles() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+  for (let i = 0; i < particlesArray.length; i++) {
+    particlesArray[i].update();
+    particlesArray[i].draw();
+  }
+
+  connectParticles();
+  requestAnimationFrame(animateParticles);
+}
+
+// Initialize and start animation
+initParticles();
+animateParticles();
+
+// Update canvas size on scroll (for better coverage)
+let resizeTimeout;
+window.addEventListener('scroll', () => {
+  clearTimeout(resizeTimeout);
+  resizeTimeout = setTimeout(() => {
+    setCanvasSize();
+  }, 100);
+});
+
 // ===== SCROLL REVEAL ANIMATION =====
 const reveals = document.querySelectorAll(".reveal");
 const observer = new IntersectionObserver(
@@ -41,24 +140,26 @@ document.addEventListener("click", (e) => {
 const themeToggle = document.getElementById("theme-toggle");
 const themeIcon = themeToggle.querySelector("i");
 
-// Check for saved theme preference or default to light mode
-const currentTheme = localStorage.getItem("theme") || "light";
+// Check for saved theme preference or default to dark mode
+const currentTheme = localStorage.getItem("theme") || "dark";
 
 // Apply saved theme on page load
-if (currentTheme === "dark") {
-  document.body.classList.add("dark");
+if (currentTheme === "light") {
+  document.body.classList.add("light");
+  updateThemeIcon(false);
+} else {
   updateThemeIcon(true);
 }
 
 // Toggle theme
 themeToggle.addEventListener("click", () => {
-  const isDark = document.body.classList.toggle("dark");
+  const isLight = document.body.classList.toggle("light");
   
   // Save theme preference
-  localStorage.setItem("theme", isDark ? "dark" : "light");
+  localStorage.setItem("theme", isLight ? "light" : "dark");
   
   // Update icon
-  updateThemeIcon(isDark);
+  updateThemeIcon(!isLight);
 });
 
 // Function to update theme toggle icon
@@ -77,19 +178,17 @@ const navbar = document.getElementById("navbar");
 
 window.addEventListener("scroll", () => {
   if (window.scrollY > 50) {
-    navbar.style.boxShadow = "0 4px 20px rgba(0, 0, 0, 0.2)";
+    navbar.style.boxShadow = "0 4px 30px rgba(0, 255, 136, 0.2)";
   } else {
-    navbar.style.boxShadow = "0 2px 10px rgba(0, 0, 0, 0.1)";
+    navbar.style.boxShadow = "0 2px 20px rgba(0, 255, 136, 0.1)";
   }
 });
 
 // ===== SMOOTH SCROLL FOR SAFARI =====
-// Safari doesn't fully support CSS scroll-behavior, so we add JS fallback
 document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
   anchor.addEventListener("click", function (e) {
     const href = this.getAttribute("href");
     
-    // Skip if it's just "#" or empty
     if (href === "#" || !href) return;
     
     e.preventDefault();
@@ -128,25 +227,29 @@ window.addEventListener("scroll", () => {
   });
 });
 
-// ===== ANIMATE SKILL BARS ON SCROLL =====
-const skillBars = document.querySelectorAll('.skill-progress');
+// ===== ANIMATE MODERN SKILL BARS ON SCROLL =====
+const skillBarsModern = document.querySelectorAll('.skill-bar-modern');
 
 const skillObserver = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
-      const width = entry.target.style.width;
-      entry.target.style.width = '0%';
+      const bar = entry.target;
+      const fill = bar.querySelector('.skill-bar-fill');
+      const targetWidth = bar.getAttribute('data-width');
       
-      // Animate the width
+      // Reset width
+      fill.style.width = '0%';
+      
+      // Animate to target width
       setTimeout(() => {
-        entry.target.style.width = width;
+        fill.style.width = targetWidth + '%';
       }, 100);
       
-      // Stop observing this element after animation
+      // Stop observing this bar
       skillObserver.unobserve(entry.target);
     }
   });
 }, { threshold: 0.5 });
 
 // Observe all skill bars
-skillBars.forEach(bar => skillObserver.observe(bar));
+skillBarsModern.forEach(bar => skillObserver.observe(bar));
