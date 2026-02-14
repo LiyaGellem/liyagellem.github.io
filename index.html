@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Liya Gellem - Computer Science Student Portfolio">
   <title>Liya Gellem | Portfolio</title>
   <link rel="stylesheet" href="style.css">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
@@ -14,7 +15,7 @@
   <div class="container nav-container">
     <h1 class="logo">Liya Gellem</h1>
 
-    <ul class="nav-links">
+    <ul class="nav-links" id="nav-links">
       <li><a href="#home">Home</a></li>
       <li><a href="#about">About</a></li>
       <li><a href="#skills">Skills</a></li>
@@ -22,9 +23,11 @@
       <li><a href="#contact">Contact</a></li>
     </ul>
 
-    <button id="theme-toggle" title="Toggle theme">🌙</button>
+    <button id="theme-toggle" aria-label="Toggle dark mode">
+      <i class="fas fa-moon"></i>
+    </button>
 
-    <div class="menu-toggle" id="menu-toggle">
+    <div class="menu-toggle" id="menu-toggle" aria-label="Toggle menu">
       <i class="fa-solid fa-bars"></i>
     </div>
   </div>
@@ -33,14 +36,14 @@
 <!-- ===== HERO ===== -->
 <header id="home">
   <div class="hero-container container">
-    <img src="assets/images/profile.jpg" alt="Liya Gellem" class="profile-img">
-    <h1>Hi, I’m Liya Gellem</h1>
-    <p>Computer Science Student | Aspiring Software Developer</p>
+    <img src="assets/images/profile.jpg" alt="Liya Gellem profile picture" class="profile-img">
+    <h1>Hi, I'm <span class="highlight">Liya Gellem</span></h1>
+    <p class="hero-subtitle">Computer Science Student | Aspiring Software Developer</p>
 
     <div class="hero-buttons">
       <a href="#contact" class="btn">Contact Me</a>
       <a href="assets/Liya_Gellem_CV.pdf" download class="btn secondary-btn">
-        Download CV
+        <i class="fas fa-download"></i> Download CV
       </a>
     </div>
   </div>
@@ -51,7 +54,7 @@
   <div class="container">
     <h2>About Me</h2>
     <p>
-      I’m a final-year Computer Science student at Tshwane University of Technology.
+      I'm a final-year Computer Science student at Tshwane University of Technology.
       I enjoy building real-world projects, learning new technologies, and solving
       problems through code. My goal is to create software that helps students and
       local communities in South Africa.
@@ -64,12 +67,30 @@
   <div class="container">
     <h2>Skills</h2>
     <div class="skills-grid">
-      <div class="skill"><i class="fa-brands fa-java"></i> Java</div>
-      <div class="skill"><i class="fa-brands fa-js"></i> JavaScript</div>
-      <div class="skill"><i class="fa-brands fa-html5"></i> HTML</div>
-      <div class="skill"><i class="fa-brands fa-css3-alt"></i> CSS</div>
-      <div class="skill"><i class="fa-solid fa-database"></i> MySQL</div>
-      <div class="skill"><i class="fa-solid fa-code"></i> Selenium / Automation</div>
+      <div class="skill">
+        <i class="fa-brands fa-java"></i>
+        <span>Java</span>
+      </div>
+      <div class="skill">
+        <i class="fa-brands fa-js"></i>
+        <span>JavaScript</span>
+      </div>
+      <div class="skill">
+        <i class="fa-brands fa-html5"></i>
+        <span>HTML</span>
+      </div>
+      <div class="skill">
+        <i class="fa-brands fa-css3-alt"></i>
+        <span>CSS</span>
+      </div>
+      <div class="skill">
+        <i class="fa-solid fa-database"></i>
+        <span>MySQL</span>
+      </div>
+      <div class="skill">
+        <i class="fa-solid fa-code"></i>
+        <span>Selenium / Automation</span>
+      </div>
     </div>
   </div>
 </section>
@@ -81,29 +102,29 @@
     <div class="projects-grid">
 
       <div class="project-card">
-        <img src="assets/images/project1.png" alt="Student Expense Tracker">
+        <img src="assets/images/project1.png" alt="Student Expense Tracker project screenshot">
         <h3>Student Expense Tracker</h3>
         <p>Java application to track income and expenses with monthly summaries.</p>
-        <a href="https://github.com/liyagellem/student-expense-tracker" target="_blank">
-          View Repo
+        <a href="https://github.com/liyagellem/student-expense-tracker" target="_blank" rel="noopener noreferrer" class="project-link">
+          <i class="fab fa-github"></i> View Repo
         </a>
       </div>
 
       <div class="project-card">
-        <img src="assets/images/project2.png" alt="Bursary Website">
+        <img src="assets/images/project2.png" alt="Bursary Website project screenshot">
         <h3>Institution & Bursary Website</h3>
         <p>Web-based student application system using HTML, CSS, and JavaScript.</p>
-        <a href="https://github.com/liyagellem/bursary-application-system" target="_blank">
-          View Repo
+        <a href="https://github.com/liyagellem/bursary-application-system" target="_blank" rel="noopener noreferrer" class="project-link">
+          <i class="fab fa-github"></i> View Repo
         </a>
       </div>
 
       <div class="project-card">
-        <img src="assets/images/project3.png" alt="Selenium Automation">
+        <img src="assets/images/project3.png" alt="Selenium Automation project screenshot">
         <h3>Selenium E-commerce Automation</h3>
         <p>Automated testing using Selenium and Java.</p>
-        <a href="https://github.com/liyagellem/selenium-ecommerce-tests" target="_blank">
-          View Repo
+        <a href="https://github.com/liyagellem/selenium-ecommerce-tests" target="_blank" rel="noopener noreferrer" class="project-link">
+          <i class="fab fa-github"></i> View Repo
         </a>
       </div>
 
@@ -113,16 +134,29 @@
 
 <!-- ===== CONTACT ===== -->
 <section id="contact" class="reveal">
-  <div class="container">
+  <div class="container contact-container">
     <h2>Contact Me</h2>
-    <p>Email: <a href="mailto:your@email.com">your@email.com</a></p>
-    <p>LinkedIn: <a href="#" target="_blank">Your LinkedIn</a></p>
-    <p>GitHub: <a href="https://github.com/liyagellem" target="_blank">liyagellem</a></p>
+    <p class="contact-intro">Feel free to reach out! I'm always open to discussing new projects or opportunities.</p>
+    
+    <div class="contact-links">
+      <a href="mailto:your@email.com" class="contact-item">
+        <i class="fas fa-envelope"></i>
+        <span>your@email.com</span>
+      </a>
+      <a href="https://linkedin.com/in/yourprofile" target="_blank" rel="noopener noreferrer" class="contact-item">
+        <i class="fab fa-linkedin"></i>
+        <span>LinkedIn Profile</span>
+      </a>
+      <a href="https://github.com/liyagellem" target="_blank" rel="noopener noreferrer" class="contact-item">
+        <i class="fab fa-github"></i>
+        <span>github.com/liyagellem</span>
+      </a>
+    </div>
   </div>
 </section>
 
 <footer>
-  <p>© 2026 Liya Gellem</p>
+  <p>© 2026 Liya Gellem. Built with passion and code.</p>
 </footer>
 
 <script src="script.js"></script>
