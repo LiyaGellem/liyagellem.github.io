@@ -88,7 +88,7 @@ function animateParticles() {
 initParticles();
 animateParticles();
 
-// Update canvas size on scroll (for better coverage)
+// Update canvas size on scroll
 let resizeTimeout;
 window.addEventListener('scroll', () => {
   clearTimeout(resizeTimeout);
@@ -109,7 +109,6 @@ const observer = new IntersectionObserver(
   },
   { threshold: 0.2 }
 );
-
 reveals.forEach((section) => observer.observe(section));
 
 // ===== MOBILE MENU =====
@@ -140,29 +139,30 @@ document.addEventListener("click", (e) => {
 const themeToggle = document.getElementById("theme-toggle");
 const themeIcon = themeToggle.querySelector("i");
 
-// Check for saved theme preference or default to dark mode
-const currentTheme = localStorage.getItem("theme") || "dark";
+// Load saved theme or default to dark
+let currentTheme = localStorage.getItem("theme") || "dark";
+document.body.classList.remove("dark", "light");
+document.body.classList.add(currentTheme);
+updateThemeIcon(currentTheme === "dark");
 
-// Apply saved theme on page load
-if (currentTheme === "light") {
-  document.body.classList.add("light");
-  updateThemeIcon(false);
-} else {
-  updateThemeIcon(true);
-}
-
-// Toggle theme
+// Toggle theme on click
 themeToggle.addEventListener("click", () => {
-  const isLight = document.body.classList.toggle("light");
-  
-  // Save theme preference
-  localStorage.setItem("theme", isLight ? "light" : "dark");
-  
-  // Update icon
-  updateThemeIcon(!isLight);
+  const isDark = document.body.classList.contains("dark");
+
+  if (isDark) {
+    document.body.classList.remove("dark");
+    document.body.classList.add("light");
+    localStorage.setItem("theme", "light");
+  } else {
+    document.body.classList.remove("light");
+    document.body.classList.add("dark");
+    localStorage.setItem("theme", "dark");
+  }
+
+  updateThemeIcon(!isDark);
 });
 
-// Function to update theme toggle icon
+// Update theme icon
 function updateThemeIcon(isDark) {
   if (isDark) {
     themeIcon.classList.remove("fa-moon");
@@ -175,7 +175,6 @@ function updateThemeIcon(isDark) {
 
 // ===== NAVBAR BACKGROUND ON SCROLL =====
 const navbar = document.getElementById("navbar");
-
 window.addEventListener("scroll", () => {
   if (window.scrollY > 50) {
     navbar.style.boxShadow = "0 4px 30px rgba(0, 255, 136, 0.2)";
@@ -188,17 +187,12 @@ window.addEventListener("scroll", () => {
 document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
   anchor.addEventListener("click", function (e) {
     const href = this.getAttribute("href");
-    
     if (href === "#" || !href) return;
-    
+
     e.preventDefault();
-    
     const target = document.querySelector(href);
     if (target) {
-      target.scrollIntoView({
-        behavior: "smooth",
-        block: "start",
-      });
+      target.scrollIntoView({ behavior: "smooth", block: "start" });
     }
   });
 });
@@ -209,11 +203,8 @@ const navItems = document.querySelectorAll(".nav-links a");
 
 window.addEventListener("scroll", () => {
   let current = "";
-
   sections.forEach((section) => {
     const sectionTop = section.offsetTop;
-    const sectionHeight = section.clientHeight;
-    
     if (window.scrollY >= sectionTop - 100) {
       current = section.getAttribute("id");
     }
@@ -229,22 +220,21 @@ window.addEventListener("scroll", () => {
 
 // ===== ANIMATE MODERN SKILL BARS ON SCROLL =====
 const skillBarsModern = document.querySelectorAll('.skill-bar-modern');
-
 const skillObserver = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
       const bar = entry.target;
       const fill = bar.querySelector('.skill-bar-fill');
       const targetWidth = bar.getAttribute('data-width');
-      
+
       // Reset width
       fill.style.width = '0%';
-      
+
       // Animate to target width
       setTimeout(() => {
         fill.style.width = targetWidth + '%';
       }, 100);
-      
+
       // Stop observing this bar
       skillObserver.unobserve(entry.target);
     }
@@ -253,3 +243,4 @@ const skillObserver = new IntersectionObserver((entries) => {
 
 // Observe all skill bars
 skillBarsModern.forEach(bar => skillObserver.observe(bar));
+
