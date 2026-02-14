@@ -1,46 +1,119 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Liyabona Gellem Portfolio</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Liya Gellem | Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
 </head>
 <body>
 
-<header class="header">
-    <a href="#" class="logo">Liyabona</a>
+<nav id="navbar">
+  <div class="container nav-container">
+    <h1 class="logo">Liya Gellem</h1>
+    <ul class="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
 
-    <nav class="navbar">
-        <a href="#" class="active">Home</a>
-        <a href="#">About</a>
-        <a href="#">Services</a>
-        <a href="#">Portfolio</a>
-        <a href="#">Contact</a>
-    </nav>
+<header id="home">
+  <div class="hero-container">
+    <img src="assets/images/profile.jpg" alt="Liya Gellem" class="profile-img">
+    <h1>Hi, I’m Liya Gellem</h1>
+    <p>Computer Science Student | Aspiring Software Developer</p>
+
+    <div class="hero-buttons">
+      <a href="#contact" class="btn">Contact Me</a>
+      <a href="assets/Liya_Gellem_CV.pdf" download class="btn secondary-btn">
+        Download CV
+      </a>
+    </div>
+  </div>
 </header>
 
-<section class="home">
-    <div class="home-content reveal">
-        <h1>Hi, I'm Liya Gellem</h1>
-        <h3>💻 Software Developer | Java | Web Development</h3>
-        <p>
-            I'm a final-year Computer Science student passionate about building practical software solutions.
-            I enjoy working on real-world projects, learning new technologies, and solving problems through code.
-        </p>
-
-        <div class="btn-box reveal">
-            <a href="#">Hire Me</a>
-            <a href="#">Talk to me</a>
-        </div>
-    </div>
+<section id="about" class="reveal">
+  <div class="container">
+    <h2>About Me</h2>
+    <p>
+      I’m a final-year Computer Science student at Tshwane University of Technology.
+      I enjoy building real-world projects, learning new technologies, and solving
+      problems through code. My goal is to create software that helps students and
+      local communities in South Africa.
+    </p>
+  </div>
 </section>
+
+<section id="skills" class="reveal">
+  <div class="container">
+    <h2>Skills</h2>
+    <div class="skills-grid">
+      <div class="skill"><i class="fa-brands fa-java"></i> Java</div>
+      <div class="skill"><i class="fa-brands fa-js"></i> JavaScript</div>
+      <div class="skill"><i class="fa-brands fa-html5"></i> HTML</div>
+      <div class="skill"><i class="fa-brands fa-css3-alt"></i> CSS</div>
+      <div class="skill"><i class="fa-solid fa-database"></i> MySQL</div>
+      <div class="skill"><i class="fa-solid fa-code"></i> Selenium / Automation</div>
+    </div>
+  </div>
+</section>
+
+<section id="projects" class="reveal">
+  <div class="container">
+    <h2>Projects</h2>
+    <div class="projects-grid">
+
+      <div class="project-card">
+        <img src="assets/images/project1.png" alt="Student Expense Tracker">
+        <h3>Student Expense Tracker</h3>
+        <p>Java application to track income and expenses with monthly summaries.</p>
+        <a href="https://github.com/liyagellem/student-expense-tracker" target="_blank">
+          View Repo
+        </a>
+      </div>
+
+      <div class="project-card">
+        <img src="assets/images/project2.png" alt="Bursary Website">
+        <h3>Institution & Bursary Website</h3>
+        <p>Web-based student application system using HTML, CSS, and JavaScript.</p>
+        <a href="https://github.com/liyagellem/bursary-application-system" target="_blank">
+          View Repo
+        </a>
+      </div>
+
+      <div class="project-card">
+        <img src="assets/images/project3.png" alt="Selenium Automation">
+        <h3>Selenium E-commerce Automation</h3>
+        <p>Data-driven automated testing using Selenium and Java.</p>
+        <a href="https://github.com/liyagellem/selenium-ecommerce-tests" target="_blank">
+          View Repo
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="reveal">
+  <div class="container">
+    <h2>Contact Me</h2>
+    <p>Email: <a href="mailto:your@email.com">your@email.com</a></p>
+    <p>LinkedIn: <a href="#" target="_blank">Your LinkedIn</a></p>
+    <p>GitHub: <a href="https://github.com/liyagellem" target="_blank">liyagellem</a></p>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 Liya Gellem</p>
+</footer>
 
 <script src="script.js"></script>
 </body>
 </html>
 
-
-</body>
-</html>
 
