@@ -10,10 +10,13 @@
 </head>
 <body>
 
+<!-- ===== ANIMATED BACKGROUND ===== -->
+<canvas id="background-canvas"></canvas>
+
 <!-- ===== NAVBAR ===== -->
 <nav id="navbar">
   <div class="container nav-container">
-    <h1 class="logo">Liya </h1>
+    <h1 class="logo">Liya</h1>
 
     <ul class="nav-links" id="nav-links">
       <li><a href="#home">Home</a></li>
@@ -39,7 +42,7 @@
   <div class="hero-container container">
     <img src="assets/images/Liya.png" alt="Liya Gellem profile picture" class="profile-img">
     <h1>Hi, I'm <span class="highlight">Liyabona Meyeliseli</span></h1>
-    <p class="hero-subtitle">Computer Science Student | Aspiring Software Developer  | Java | Web Development</p>
+    <p class="hero-subtitle">Computer Science Student | Aspiring Software Developer | Java | Web Development</p>
 
     <div class="hero-buttons">
       <a href="#contact" class="btn">Contact Me</a>
@@ -65,87 +68,330 @@
 
 <!-- ===== SKILLS ===== -->
 <section id="skills" class="reveal">
-  <div class="container">
-    <h2>Skills</h2>
+  <div class="container-wide">
+    <h2>Skills & Technologies</h2>
     
-    <div class="skills-category">
-      <h3><i class="fas fa-code"></i> Programming</h3>
-      <div class="skill-item">
-        <div class="skill-info">
-          <span>Java (OOP, GUI, File Handling)</span>
-          <span>80%</span>
+    <div class="skills-grid-container">
+      
+      <!-- Programming Languages -->
+      <div class="skill-category-card">
+        <div class="category-header">
+          <i class="fas fa-code"></i>
+          <h3>Programming Languages</h3>
         </div>
-        <div class="skill-bar">
-          <div class="skill-progress" style="width: 80%"></div>
+        <div class="skills-list">
+          <div class="skill-item">
+            <div class="skill-info">
+              <i class="fab fa-java"></i>
+              <span>Java</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-progress" style="width: 80%"></div>
+            </div>
+            <span class="skill-percent">80%</span>
+          </div>
+
+          <div class="skill-item">
+            <div class="skill-info">
+              <i class="fab fa-js"></i>
+              <span>JavaScript</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-progress" style="width: 65%"></div>
+            </div>
+            <span class="skill-percent">65%</span>
+          </div>
+
+          <div class="skill-item">
+            <div class="skill-info">
+              <i class="fab fa-html5"></i>
+              <span>HTML</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-progress" style="width: 85%"></div>
+            </div>
+            <span class="skill-percent">85%</span>
+          </div>
+
+          <div class="skill-item">
+            <div class="skill-info">
+              <i class="fab fa-css3-alt"></i>
+              <span>CSS</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-progress" style="width: 75%"></div>
+            </div>
+            <span class="skill-percent">75%</span>
+          </div>
         </div>
       </div>
-    </div>
 
-    <div class="skills-category">
-      <h3><i class="fas fa-laptop-code"></i> Web Development</h3>
-      <div class="skill-item">
-        <div class="skill-info">
-          <span>HTML, CSS, JavaScript</span>
-          <span>60%</span>
+      <!-- Databases -->
+      <div class="skill-category-card">
+        <div class="category-header">
+          <i class="fas fa-database"></i>
+          <h3>Databases</h3>
         </div>
-        <div class="skill-bar">
-          <div class="skill-progress" style="width: 60%"></div>
+        <div class="skills-list">
+          <div class="skill-item">
+            <div class="skill-info">
+              <i class="fas fa-database"></i>
+              <span>MySQL</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-progress" style="width: 85%"></div>
+            </div>
+            <span class="skill-percent">85%</span>
+          </div>
+
+          <div class="skill-item">
+            <div class="skill-info">
+              <i class="fas fa-database"></i>
+              <span>SQL</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-progress" style="width: 80%"></div>
+            </div>
+            <span class="skill-percent">80%</span>
+          </div>
+
+          <div class="skill-item">
+            <div class="skill-info">
+              <i class="fas fa-database"></i>
+              <span>PL/SQL</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-progress" style="width: 75%"></div>
+            </div>
+            <span class="skill-percent">75%</span>
+          </div>
+
+          <div class="skill-item">
+            <div class="skill-info">
+              <i class="fas fa-database"></i>
+              <span>MSSQL</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-progress" style="width: 70%"></div>
+            </div>
+            <span class="skill-percent">70%</span>
+          </div>
         </div>
       </div>
-    </div>
 
-    <div class="skills-category">
-      <h3><i class="fas fa-database"></i> Databases</h3>
-      <div class="skill-item">
-        <div class="skill-info">
-          <span>SQL (Queries, Relational Databases, Normalization)</span>
-          <span>60%</span>
+      <!-- Tools & Technologies -->
+      <div class="skill-category-card">
+        <div class="category-header">
+          <i class="fas fa-tools"></i>
+          <h3>Tools & Technologies</h3>
         </div>
-        <div class="skill-bar">
-          <div class="skill-progress" style="width: 60%"></div>
+        <div class="skills-list">
+          <div class="skill-item">
+            <div class="skill-info">
+              <i class="fas fa-code"></i>
+              <span>NetBeans</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-progress" style="width: 80%"></div>
+            </div>
+            <span class="skill-percent">80%</span>
+          </div>
+
+          <div class="skill-item">
+            <div class="skill-info">
+              <i class="fas fa-code"></i>
+              <span>VS Code</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-progress" style="width: 80%"></div>
+            </div>
+            <span class="skill-percent">80%</span>
+          </div>
+
+          <div class="skill-item">
+            <div class="skill-info">
+              <i class="fas fa-bug"></i>
+              <span>Debugging</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-progress" style="width: 75%"></div>
+            </div>
+            <span class="skill-percent">75%</span>
+          </div>
+
+          <div class="skill-item">
+            <div class="skill-info">
+              <i class="fas fa-robot"></i>
+              <span>Selenium</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-progress" style="width: 70%"></div>
+            </div>
+            <span class="skill-percent">70%</span>
+          </div>
         </div>
       </div>
-    </div>
 
-    <div class="skills-category">
-      <h3><i class="fas fa-tools"></i> Tools & IDEs</h3>
-      <div class="skill-item">
-        <div class="skill-info">
-          <span>NetBeans, VS Code, Debugging, IDE Extensions</span>
-          <span>80%</span>
+      <!-- Operating Systems -->
+      <div class="skill-category-card">
+        <div class="category-header">
+          <i class="fas fa-desktop"></i>
+          <h3>Operating Systems</h3>
         </div>
-        <div class="skill-bar">
-          <div class="skill-progress" style="width: 80%"></div>
+        <div class="skills-list">
+          <div class="skill-item">
+            <div class="skill-info">
+              <i class="fab fa-windows"></i>
+              <span>Windows</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-progress" style="width: 90%"></div>
+            </div>
+            <span class="skill-percent">90%</span>
+          </div>
+
+          <div class="skill-item">
+            <div class="skill-info">
+              <i class="fab fa-linux"></i>
+              <span>Linux</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-progress" style="width: 80%"></div>
+            </div>
+            <span class="skill-percent">80%</span>
+          </div>
+
+          <div class="skill-item">
+            <div class="skill-info">
+              <i class="fas fa-terminal"></i>
+              <span>Shell Commands</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-progress" style="width: 75%"></div>
+            </div>
+            <span class="skill-percent">75%</span>
+          </div>
+
+          <div class="skill-item">
+            <div class="skill-info">
+              <i class="fas fa-cog"></i>
+              <span>System Maintenance</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-progress" style="width: 80%"></div>
+            </div>
+            <span class="skill-percent">80%</span>
+          </div>
         </div>
       </div>
-    </div>
 
-    <div class="skills-category">
-      <h3><i class="fas fa-desktop"></i> Operating Systems</h3>
-      <div class="skill-item">
-        <div class="skill-info">
-          <span>Windows, Linux (Installation, System Maintenance, Shell Commands)</span>
-          <span>80%</span>
+      <!-- Professional Skills -->
+      <div class="skill-category-card">
+        <div class="category-header">
+          <i class="fas fa-users"></i>
+          <h3>Professional Skills</h3>
         </div>
-        <div class="skill-bar">
-          <div class="skill-progress" style="width: 80%"></div>
+        <div class="skills-list">
+          <div class="skill-item">
+            <div class="skill-info">
+              <i class="fas fa-headset"></i>
+              <span>Technical Support</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-progress" style="width: 85%"></div>
+            </div>
+            <span class="skill-percent">85%</span>
+          </div>
+
+          <div class="skill-item">
+            <div class="skill-info">
+              <i class="fas fa-search"></i>
+              <span>Troubleshooting</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-progress" style="width: 80%"></div>
+            </div>
+            <span class="skill-percent">80%</span>
+          </div>
+
+          <div class="skill-item">
+            <div class="skill-info">
+              <i class="fas fa-network-wired"></i>
+              <span>Networking Basics</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-progress" style="width: 70%"></div>
+            </div>
+            <span class="skill-percent">70%</span>
+          </div>
+
+          <div class="skill-item">
+            <div class="skill-info">
+              <i class="fas fa-laptop"></i>
+              <span>Hardware Support</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-progress" style="width: 75%"></div>
+            </div>
+            <span class="skill-percent">75%</span>
+          </div>
         </div>
       </div>
-    </div>
 
-    <div class="skills-category">
-      <h3><i class="fas fa-headset"></i> General IT Support</h3>
-      <div class="skill-item">
-        <div class="skill-info">
-          <span>Troubleshooting, Hardware, Software, Networking Basics</span>
-          <span>80%</span>
+      <!-- Additional Technologies -->
+      <div class="skill-category-card">
+        <div class="category-header">
+          <i class="fas fa-layer-group"></i>
+          <h3>Additional Technologies</h3>
         </div>
-        <div class="skill-bar">
-          <div class="skill-progress" style="width: 80%"></div>
+        <div class="skills-list">
+          <div class="skill-item">
+            <div class="skill-info">
+              <i class="fab fa-git-alt"></i>
+              <span>Git</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-progress" style="width: 70%"></div>
+            </div>
+            <span class="skill-percent">70%</span>
+          </div>
+
+          <div class="skill-item">
+            <div class="skill-info">
+              <i class="fab fa-github"></i>
+              <span>GitHub</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-progress" style="width: 75%"></div>
+            </div>
+            <span class="skill-percent">75%</span>
+          </div>
+
+          <div class="skill-item">
+            <div class="skill-info">
+              <i class="fas fa-file-code"></i>
+              <span>File Handling</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-progress" style="width: 80%"></div>
+            </div>
+            <span class="skill-percent">80%</span>
+          </div>
+
+          <div class="skill-item">
+            <div class="skill-info">
+              <i class="fas fa-object-group"></i>
+              <span>OOP</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-progress" style="width: 85%"></div>
+            </div>
+            <span class="skill-percent">85%</span>
+          </div>
         </div>
       </div>
-    </div>
 
+    </div>
   </div>
 </section>
 
@@ -233,16 +479,7 @@
         </a>
       </div>
 
-      <!-- ADD MORE CERTIFICATES HERE -->
-      <!-- Just copy the certificate-card div above and modify the details -->
-
     </div>
-
-    <!-- Optional: Add this message if you don't have certificates yet -->
-    <!-- <div class="no-certificates">
-      <i class="fas fa-hourglass-half"></i>
-      <p>Certificates coming soon! Currently working on obtaining professional certifications.</p>
-    </div> -->
 
   </div>
 </section>
@@ -258,13 +495,13 @@
         <i class="fas fa-envelope"></i>
         <span>email</span>
       </a>
-      <a href="https://www.linkedin.com/in/liyabona-meyeliseli" target="_blank" rel="noopener noreferrer" class="contact-item">
+      <a href="https://www.linkedin.com/in/liyabona-meyeliseli/" target="_blank" rel="noopener noreferrer" class="contact-item">
         <i class="fab fa-linkedin"></i>
         <span>LinkedIn Profile</span>
       </a>
       <a href="https://github.com/LiyaGellem" target="_blank" rel="noopener noreferrer" class="contact-item">
         <i class="fab fa-github"></i>
-        <span>Github</span>
+        <span>github.com/liyagellem</span>
       </a>
     </div>
   </div>
@@ -277,6 +514,7 @@
 <script src="script.js"></script>
 </body>
 </html>
+
 
 
 
